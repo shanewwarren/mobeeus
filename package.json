@@ -1,0 +1,30 @@
+{
+  "name": "slowmobius",
+  "version": "1.0.0",
+  "description": "Hapi.js plugin to handle queueing and scheduling of background jobs.",
+  "main": "test.js",
+  "scripts": {
+    "test": "mocha --recursive test"
+  },
+  "author": "Shane Warren",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "bcrypt": "^0.8.7",
+    "chai": "^3.5.0",
+    "co": "^4.6.0",
+    "joi": "^10.0.5",
+    "lodash": "^4.17.2",
+    "mocha": "^3.2.0"
+  },
+  "devDependencies": {
+    "eslint-config-hapi": "^10.0.0",
+    "eslint-plugin-hapi": "^4.0.0"
+  },
+  "keywords": [
+    "hapijs",
+    "rabbitmq",
+    "agenda",
+    "plugin"
+  ]
+}
