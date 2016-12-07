@@ -2,7 +2,7 @@
 
 // Load modules
 const expect = require('chai').expect;
-const RabbitMQ = require('../../lib').RabbitMQ;
+const RabbitMQ = require('../../lib/rabbitmq');
 const Uri = RabbitMQ.Uri;
 
 // Declare internals

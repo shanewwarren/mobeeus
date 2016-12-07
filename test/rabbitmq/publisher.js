@@ -3,7 +3,7 @@
 // Load modules
 const expect = require('chai').expect;
 const Co = require('co');
-const RabbitMQ = require('../../lib').RabbitMQ;
+const RabbitMQ = require('../../lib/rabbitmq');
 const Connection = RabbitMQ.Connection;
 const Publisher = RabbitMQ.Publisher;
 
