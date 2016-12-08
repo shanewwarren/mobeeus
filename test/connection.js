@@ -30,20 +30,15 @@ describe('Connection', function () {
 
     it('should close only active channels', (done) => {
 
-        const consumerOne = new Consumer();
-        const consumerTwo = new Consumer();
-        const queueNames = ['test', 'test2'];
+        const consumerOne = new Consumer({ name: 'test' });
+        const consumerTwo = new Consumer({ name: 'test2' });
 
         const connection = new Connection();
         connection.open((err) => {
 
             expect(err).to.be.undefined;
 
-            const each = (item, next, i) => {
-
-                item.connect(connection, { name: queueNames[i] }, next);
-            };
-
+            const each = (item, next) => item.connect(connection, next);
             Items.parallel([consumerOne, consumerTwo], each, (err) => {
 
                 expect(err).to.be.undefined;

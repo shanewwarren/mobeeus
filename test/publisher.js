@@ -2,10 +2,8 @@
 
 // Load modules
 const expect = require('chai').expect;
-const Co = require('co');
-const RabbitMQ = require('../../lib/rabbitmq');
-const Connection = RabbitMQ.Connection;
-const Publisher = RabbitMQ.Publisher;
+const Publisher = require('../lib/publisher');
+const Connection = require('../lib/connection');
 
 // Declare internals
 const internals = {};
@@ -15,68 +13,69 @@ describe('Publisher', () => {
 
     it('should create a publisher instance', () => {
 
-        return Co(function *() {
+        const connection = new Connection();
+        const publisher = new Publisher({ name: 'test' });
 
-            const connection = new Connection();
-            yield connection.open();
+        connection.open((err) => {
 
-            const publisher = new Publisher();
-            yield publisher.connect(connection, { name: 'test' });
+            expect(err).to.not.exist;
+            publisher.connect(connection, (err) => {
 
+                expect(err).to.not.exist;
+                done();
+            });
         });
     });
 
 
     it('should send a task to the test queue', () => {
 
-        return Co(function *() {
+        const connection = new Connection();
+        const publisher = new Publisher({ name: 'test' });
+        const payload = {
+            message: 'Simple Task'
+        };
 
-            const connection = new Connection();
-            yield connection.open();
+        connection.open((err) => {
 
-            const publisher = new Publisher();
-            yield publisher.connect(connection, { name: 'test' });
+            expect(err).to.not.exist;
+            publisher.connect(connection, (err) => {
 
-            let exception = null;
-            try {
-                publisher.addTask({
-                    message: 'Simple Task'
+                expect(err).to.not.exist;
+                publisher.addTask(payload, (err) => {
+
+                    expect(err).to.not.exist;
+                    done();
                 });
-            }
-            catch (ex) {
-                exception = ex;
-            }
-
-            expect(exception).to.equal(null);
-
+            });
         });
     });
 
     it('should fail to send a message if the connection is closed.', () => {
 
-        return Co(function *() {
+        const connection = new Connection();
+        const publisher = new Publisher({ name: 'test' });
 
-            const connection = new Connection();
-            yield connection.open();
+        const payload = {
+            message: 'Simple Task'
+        };
 
-            const publisher = new Publisher();
-            yield publisher.connect(connection, { name: 'test' });
+        connection.open((err) => {
 
-            // close the connection
-            yield connection.close();
+            expect(err).to.not.exist;
+            publisher.connect(connection, (err) => {
 
-            let exception = null;
+                expect(err).to.not.exist;
+                connection.close((err) => {
 
-            try {
-                publisher.addTask({
-                    message: 'Simple Task'
+                    expect(err).to.not.exist;
+                    publisher.addTask(payload, (err) => {
+
+                        expect(err).to.exist;
+                        done();
+                    });
                 });
-            }
-            catch (e) {
-                exception = e;
-            }
-
-            expect(exception).to.not.equal(null);
+            });
         });
     });
 
