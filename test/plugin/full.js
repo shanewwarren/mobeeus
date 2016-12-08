@@ -79,7 +79,7 @@ describe('Full', function () {
 
             yield server.start();
 
-            expect(server.dispatcher).to.not.be.null;
+            expect(server.dispatcher).to.not.exist;
 
             server.dispatcher.task('simple-task', {
                 greeting: 'Hello, World'
@@ -186,7 +186,7 @@ describe('Full', function () {
 
             yield server.start();
 
-            expect(server.dispatcher).to.not.be.null;
+            expect(server.dispatcher).to.not.exist;
 
             server.dispatcher.task('simple-task-one', {
                 greeting: 'Hello'

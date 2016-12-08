@@ -45,7 +45,7 @@ describe('Agenda', () => {
                 yield agenda.start();
                 yield agenda.disconnect();
 
-                expect(agenda.agenda).to.be.null;
+                expect(agenda.agenda).to.exist;
             }
             catch (e) {
                 exception = e;
@@ -84,7 +84,7 @@ describe('Agenda', () => {
 
                 yield agenda.disconnect();
 
-                expect(agenda.agenda).to.be.null;
+                expect(agenda.agenda).to.exist;
             }
             catch (e) {
                 exception = e;
