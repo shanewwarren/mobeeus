@@ -1,6 +1,6 @@
 {
   "name": "mobeeus",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Hapi.js plugin to handle queueing and scheduling of background jobs.",
   "repository": {
     "type": "git",
