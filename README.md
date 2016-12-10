@@ -1,5 +1,6 @@
-![mobeeus Logo](https://github.com/shanewwarren/mobeeus/raw/master/images/mobeeus.gif)
 ![mobeeus Text](https://github.com/shanewwarren/mobeeus/raw/master/images/mobeeus.png)
+
+![mobeeus Logo](https://github.com/shanewwarren/mobeeus/raw/master/images/mobeeus.gif)
 
 Hapi.js plugin to handle queueing and scheduling of background jobs.
 
