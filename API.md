@@ -9,12 +9,15 @@
 
 * [Server](#server)
   * [Dispatcher](#dispatcher "Dispatcher")
-    * [`server.dispatcher.task(name, [payload], next)`](#serverdispatchertask "task")
-    * [`server.dispatcher.every(interval, name, [payload], next)`](#dispatchEveryJob "every")
-    * [`server.dispatcher.schedule(when, name, [payload], next)`](#dispatchScheduleJob "schedule")
-    * [`server.dispatcher.now(name, [payload], next)`](#dispatchNowJob "now")
-    * [`server.dispatcher.agenda`](#accessAgenda "agenda")
+    * [`server.dispatcher.task(name, [payload], next)`](#serverdispatchertaskname-payload-next)
+    * [`server.dispatcher.every(interval, name, [payload], next)`](#serverdispatchereveryinterval-name-payload-next)
+    * [`server.dispatcher.schedule(when, name, [payload], next)`](#serverdispatcherschedulewhen-name-payload-next)
+    * [`server.dispatcher.now(name, [payload], next)`](#serverdispatchernowname-payload-next)
+    * [`server.dispatcher.agenda`](#serverdispatcheragenda)
+
 * [Client](#client)
+  * CLI (#cli)
+  * Module (#module)
 
 ## Registration
 
@@ -183,3 +186,35 @@ Schedules a job to run now, where:
 #### `server.dispatcher.agenda`
 
 Access to the underlying [Agenda.js](https://github.com/rschmukler/agenda) object.  Useful for when you may want to query/delete/update existing jobs.
+
+## Client
+
+The **mobeeus** client handles processing tasks and jobs.  There are two ways to interact with the client.
+
+### Command line interface
+
+Packaged with the module is a simple node script that accepts the following parameters:
+
+`node_modules/.bin/mobeeus`
+
+- `-f`, `--options` - The path to a node module to register Mobeeus with.  The module should export an object similar to the plugin registration object above.
+
+- `-a`, `--keepAlive` - Mostly just used for testing, specifies how long the client should continue running. Default is `forever`.
+
+### Module
+
+```js
+
+const Mobeeus = require('mobeeus/client');
+
+const mobeeus = new Mobeeus({
+    register: ...,
+    state: ...
+});
+
+mobeus.start((err) => {
+
+    console.log('Client started');
+});
+
+```
