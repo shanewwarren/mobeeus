@@ -23,13 +23,13 @@
     "amqplib": "^0.4.1",
     "bossy": "^3.0.3",
     "items": "^2.1.1",
-    "joi": "^10.0.5"
+    "joi": "^10.0.5",
+    "hoek": "^4.1.0"
   },
   "devDependencies": {
     "eslint-config-hapi": "^10.0.0",
     "eslint-plugin-hapi": "^4.0.0",
     "hapi": "^16.0.1",
-    "hoek": "^4.1.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0"
   },
