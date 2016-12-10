@@ -22,7 +22,7 @@
             "type": "node2",
             "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
             "stopOnEntry": false,
-            "args": ["test/consumer"],
+            "args": ["test/client"],
             "cwd": "${workspaceRoot}",
             "env": { "NODE_ENV": "production"}
         }

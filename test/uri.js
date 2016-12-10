@@ -1,11 +1,12 @@
 'use strict';
 
 // Load modules
+
 const expect = require('chai').expect;
-const RabbitMQ = require('../../lib/rabbitmq');
-const Uri = RabbitMQ.Uri;
+const Uri = require('../lib/uri');
 
 // Declare internals
+
 const internals = {};
 
 // Tests
