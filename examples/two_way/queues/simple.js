@@ -7,10 +7,12 @@ const Process = require('process');
 
 exports = module.exports = function (mobeeus) {
 
+    // Define the queue.
     mobeeus.queue({
         name: 'simple-queue'
     });
 
+    // Define a task that uses the queue.
     mobeeus.task({
         queue: 'simple-queue',
         name: 'simple-task',
@@ -19,7 +21,7 @@ exports = module.exports = function (mobeeus) {
             // this will run on the worker.
             console.log(`[${Process.pid}] ${payload.greeting} ${context.subject}.`);
 
-            // dispatch the task to the server.
+            // dispatch a task to the server.
             context.dispatcher.task('server-task', payload, done);
 
         },

@@ -7,10 +7,12 @@ const Process = require('process');
 
 exports = module.exports = function (mobeeus) {
 
+    // Define a 'server' queue.  Meaning server consumes tasks.
     mobeeus.serverQueue({
         name: 'server-queue'
     });
 
+    // Define a task that will run on the server.
     mobeeus.task({
         queue: 'server-queue',
         name: 'server-task',
