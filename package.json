@@ -1,11 +1,13 @@
 {
-  "name": "slowmobius",
+  "name": "mobeeus",
   "version": "1.0.0",
   "description": "Hapi.js plugin to handle queueing and scheduling of background jobs.",
   "repository": {
     "type": "git",
     "url": "git://github.com/shanewwarren/mobeeus"
   },
+  "main": "lib/index.js",
+  "bin": "bin/mobeeus",
   "scripts": {
     "test": "mocha --recursive test",
     "one_way": "node ./examples/one_way/server & ./bin/mobeeus -f ./examples/one_way/worker.js -a 5000",
@@ -30,9 +32,14 @@
     "mocha": "^3.2.0"
   },
   "keywords": [
-    "hapijs",
+    "hapi",
     "rabbitmq",
     "agenda",
+    "job",
+    "jobs",
+    "runner",
+    "task",
+    "tasks",
     "scheduler",
     "plugin"
   ]
