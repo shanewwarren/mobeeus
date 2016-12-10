@@ -4,7 +4,8 @@
   "description": "Hapi.js plugin to handle queueing and scheduling of background jobs.",
   "main": "test.js",
   "scripts": {
-    "test": "mocha --recursive test"
+    "test": "mocha --recursive test",
+    "two_way": "node ./examples/two_way/server & ./bin/mobeeus -f ./examples/two_way/worker.js -a 500"
   },
   "author": "Shane Warren",
   "license": "ISC",
@@ -23,7 +24,8 @@
   "devDependencies": {
     "eslint-config-hapi": "^10.0.0",
     "eslint-plugin-hapi": "^4.0.0",
-    "hapi": "^16.0.1"
+    "hapi": "^16.0.1",
+    "hoek": "^4.1.0"
   },
   "keywords": [
     "hapijs",

@@ -130,11 +130,11 @@ describe('client', function () {
                 }
             });
 
-            mobeeus.queue({
+            mobeeus.serverQueue({
                 name: 'server-queue'
             });
 
-            mobeeus.serverTask({
+            mobeeus.task({
                 queue: 'server-queue',
                 name: 'server-task',
                 handler: (context, payload, done) => {

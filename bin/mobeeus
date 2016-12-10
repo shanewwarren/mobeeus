@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Exit on error
+# set -e
+
+current=$(cd $(dirname $0) && pwd)
+
+node $current/../lib/client.js "$@"
