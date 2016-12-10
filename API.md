@@ -16,8 +16,8 @@
     * [`server.dispatcher.agenda`](#serverdispatcheragenda)
 
 * [Client](#client)
-  * CLI (#cli)
-  * Module (#module)
+  * [Command line interface](#command-line-interface)
+  * [Module](#module)
 
 ## Registration
 
