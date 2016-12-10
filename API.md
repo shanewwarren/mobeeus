@@ -2,14 +2,14 @@
 
 * [Registration](#registration "Registration")
   * [Mobeeus](#mobeeus "Mobeeus")
-    * [`mobeeus.queue(options)`](#registerQueue)
-    * [`mobeeus.serverQueue(options)`](#mobeeusserverqueue-options)
-    * [`mobeeus.task(options)`](#registerTask)
-    * [`mobeeus.job(options)`](#registerJob)
+    * [`mobeeus.queue(options)`](#mobeeusqueueoptions)
+    * [`mobeeus.serverQueue(options)`](#mobeeusserverqueueoptions)
+    * [`mobeeus.task(options)`](#mobeeustaskoptions)
+    * [`mobeeus.job(options)`](#mobeeusjoboptions)
 
 * [Server](#server)
   * [Dispatcher](#dispatcher "Dispatcher")
-    * [`server.dispatcher.task(name, [payload], next)`](#dispatchTask "task")
+    * [`server.dispatcher.task(name, [payload], next)`](#serverdispatchertask "task")
     * [`server.dispatcher.every(interval, name, [payload], next)`](#dispatchEveryJob "every")
     * [`server.dispatcher.schedule(when, name, [payload], next)`](#dispatchScheduleJob "schedule")
     * [`server.dispatcher.now(name, [payload], next)`](#dispatchNowJob "now")
@@ -145,44 +145,40 @@ The plugin decorates the server with the [`dispatcher`](#dispatcher) allows the 
 
 ### Dispatcher
 
-#### `server.dispatcher.task(options, next)`
+#### `server.dispatcher.task(name, [payload], next)`
 
 Queues a task, where:
 
-- `options`
-  - `name` - Name of the the job.
-  - `payload` - optional data to send to the task.
-  - `next` - the continuation method required.
+- `name` - Name of the the job.
+- `payload` - optional data to send to the task.
+- `next` - the continuation method required.
 
 
 #### `server.dispatcher.every(interval, name, [payload], next)`
 
 Schedules a job to run on a repeated interval, where:
 
-- `options`
-  - `interval` - a [Human Interval](https://github.com/rschmukler/human-interval) that defines how often the job will run.
-  - `name` - Name of the the job.
-  - `payload` - optional data to send to the task.
-  - `next` - the continuation method required.
+- `interval` - a [Human Interval](https://github.com/rschmukler/human-interval) that defines how often the job will run.
+- `name` - Name of the the job.
+- `payload` - optional data to send to the task.
+- `next` - the continuation method required.
 
 #### `server.dispatcher.schedule(when, name, [payload], next)`
 
 Schedules a job to run once later, where:
 
-- `options`
-  - `when` - is a [Human Interval](https://github.com/rschmukler/human-interval) that defines when the job will run.
-  - `name` - Name of the the job.
-  - `payload` - data to send to the task.
-  - `next` - the continuation method required.
+- `when` - is a [Human Interval](https://github.com/rschmukler/human-interval) that defines when the job will run.
+- `name` - Name of the the job.
+- `payload` - data to send to the task.
+- `next` - the continuation method required.
 
 #### `server.dispatcher.now(name, [payload], next)`
 
 Schedules a job to run now, where:
 
-- `options`
-  - `name` - Name of the the job.
-  - `payload` - data to send to the task.
-  - `next` - the continuation method required.
+- `name` - Name of the the job.
+- `payload` - data to send to the task.
+- `next` - the continuation method required.
 
 #### `server.dispatcher.agenda`
 
