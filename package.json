@@ -1,13 +1,15 @@
 {
   "name": "mobeeus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hapi.js plugin to handle queueing and scheduling of background jobs.",
   "repository": {
     "type": "git",
     "url": "git://github.com/shanewwarren/mobeeus"
   },
   "main": "lib/index.js",
-  "bin": { "mobeeus": "lib/client.js" },
+  "bin": {
+    "mobeeus": "lib/client.js"
+  },
   "scripts": {
     "test": "mocha --recursive test",
     "one_way": "node ./examples/one_way/server & ./bin/mobeeus -f ./examples/one_way/worker.js -a 5000",
