@@ -4,6 +4,16 @@
 
 Hapi.js plugin and client module/executable to handle queueing and scheduling of background jobs.
 
+# Installation
+
+Install via NPM
+
+```
+npm install mobeeus
+```
+
+You will also need to install [RabbitMQ](https://www.rabbitmq.com/) and [MongoDB](https://www.mongodb.com/).
+
 # Documentation
 
 [**API Documentation**](API.md)
