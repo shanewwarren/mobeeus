@@ -29,7 +29,7 @@ You will also need to install [RabbitMQ](https://www.rabbitmq.com/) and [MongoDB
 [46380] Hello from the Server.
 ```
 
-### server.js
+### index.js
 
 ```js
 'use strict';
