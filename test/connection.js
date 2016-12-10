@@ -62,7 +62,7 @@ describe('Connection', function () {
         const connection = new Connection();
         connection.close((err) => {
 
-            expect(err).to.equal('No active connection.  Cannot close.');
+            expect(err).to.exist;
             done();
         });
 

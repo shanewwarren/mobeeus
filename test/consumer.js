@@ -46,7 +46,6 @@ describe('Consumer', () => {
 
             expect(content.message).to.equal('Simple Task');
             channel.ack(item);
-            done();
         };
 
         connection.open((err) => {
@@ -64,6 +63,7 @@ describe('Consumer', () => {
                         consumer.receiveTasks(handler, (err) => {
 
                             expect(err).to.not.exist;
+                            setTimeout(done, 250);
                         });
                     });
                 });

@@ -2,7 +2,6 @@
   "name": "slowmobius",
   "version": "1.0.0",
   "description": "Hapi.js plugin to handle queueing and scheduling of background jobs.",
-  "main": "test.js",
   "scripts": {
     "test": "mocha --recursive test",
     "one_way": "node ./examples/one_way/server & ./bin/mobeeus -f ./examples/one_way/worker.js -a 5000",
@@ -33,6 +32,7 @@
     "hapijs",
     "rabbitmq",
     "agenda",
+    "scheduler",
     "plugin"
   ]
 }
