@@ -2,9 +2,7 @@
 
 ![mobeeus Logo](https://github.com/shanewwarren/mobeeus/raw/master/images/mobeeus.gif)
 
-Hapi.js plugin to handle queueing and scheduling of background jobs.
-
-Along with the Hapi.js plugin, Mobeeus ships with a cli client which can easily spin up a worker to process tasks or jobs.
+Hapi.js plugin and client module/executable to handle queueing and scheduling of background jobs.
 
 # Documentation
 
