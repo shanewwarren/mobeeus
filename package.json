@@ -2,6 +2,10 @@
   "name": "slowmobius",
   "version": "1.0.0",
   "description": "Hapi.js plugin to handle queueing and scheduling of background jobs.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shanewwarren/mobeeus"
+  },
   "scripts": {
     "test": "mocha --recursive test",
     "one_way": "node ./examples/one_way/server & ./bin/mobeeus -f ./examples/one_way/worker.js -a 5000",
@@ -9,24 +13,21 @@
     "scheduling": "node ./examples/scheduling/server & ./bin/mobeeus -f ./examples/scheduling/worker.js -a 20000"
   },
   "author": "Shane Warren",
-  "license": "ISC",
+  "license": "BSD-3-Clause",
   "dependencies": {
     "agenda": "^0.9.0",
     "amqplib": "^0.4.1",
-    "bcrypt": "^0.8.7",
     "bossy": "^3.0.3",
-    "chai": "^3.5.0",
-    "co": "^4.6.0",
     "items": "^2.1.1",
-    "joi": "^10.0.5",
-    "lodash": "^4.17.2",
-    "mocha": "^3.2.0"
+    "joi": "^10.0.5"
   },
   "devDependencies": {
     "eslint-config-hapi": "^10.0.0",
     "eslint-plugin-hapi": "^4.0.0",
     "hapi": "^16.0.1",
-    "hoek": "^4.1.0"
+    "hoek": "^4.1.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
   },
   "keywords": [
     "hapijs",

@@ -1,27 +1,16 @@
 'use strict';
 
 // Load modules
+
 const expect = require('chai').expect;
-const Co = require('co');
 const Agenda = require('../lib/agenda');
 
-
 // Declare internals
+
 const internals = {};
 
-internals.wait = (milliseconds) => {
-
-    return new Promise((resolve, reject) => {
-
-        setTimeout(() => {
-
-            resolve();
-        }, milliseconds);
-    });
-};
-
-
 // Tests
+
 describe('Agenda', () => {
 
     it('should open a connection by using defaults', (finished) => {
