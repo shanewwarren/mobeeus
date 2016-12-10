@@ -3,7 +3,7 @@
 * [Registration](#registration "Registration")
   * [Mobeeus](#mobeeus "Mobeeus")
     * [`mobeeus.queue(options)`](#registerQueue)
-    * [`mobeeus.serverQueue(options)`](#registerServerQueue)
+    * [`mobeeus.serverQueue(options)`](#mobeeusserverqueue-options)
     * [`mobeeus.task(options)`](#registerTask)
     * [`mobeeus.job(options)`](#registerJob)
 
