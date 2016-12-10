@@ -7,7 +7,7 @@
     "url": "git://github.com/shanewwarren/mobeeus"
   },
   "main": "lib/index.js",
-  "bin": "bin/mobeeus",
+  "bin": { "mobeeus": "lib/client.js" },
   "scripts": {
     "test": "mocha --recursive test",
     "one_way": "node ./examples/one_way/server & ./bin/mobeeus -f ./examples/one_way/worker.js -a 5000",
