@@ -104,6 +104,85 @@ describe('client', function () {
 
     });
 
+    it('should retry a task after it\'s failed.', (finished) => {
+
+        let received = null;
+        let failed = false;
+        const register = (mobeeus) => {
+
+            mobeeus.queue({
+                name: 'simple-queue'
+            });
+
+            mobeeus.task({
+                queue: 'simple-queue',
+                name: 'simple-task',
+                handler: (context, payload, done) => {
+
+                    // this will run on the worker.
+                    if (!failed) {
+                        failed = true;
+                        return done(new Error('failure!'));
+                    }
+
+                    received = payload.greeting;
+                    done();
+                },
+                config: {
+                    validate: {
+                        payload: {
+                            greeting: Joi.string().required()
+                        }
+                    }
+                }
+            });
+        };
+
+        let mobeeus = null;
+        try {
+            mobeeus = new MobeeusClient({
+                register,
+                state: (done) => {
+
+                    return done(null, {
+                        message: 'Initial Message'
+                    });
+                }
+            });
+        }
+        catch (err) {
+            expect(err).to.not.exist;
+        }
+
+        internals.getServer({ register }, (err, server) => {
+
+            expect(err).to.not.exist;
+
+            const each = (item, next) => item(next);
+            Items.serial([server.start.bind(server), mobeeus.init.bind(mobeeus), mobeeus.start.bind(mobeeus)], each, (err) => {
+
+                expect(err).to.not.exist;
+                expect(server.dispatcher).to.exist;
+                server.dispatcher.task('simple-task', { greeting: 'Hello, World' }, (err) => {
+
+                    expect(err).to.not.exist;
+
+                    setTimeout(() => {
+
+                        expect(received).to.exist;
+                        Items.serial([server.stop.bind(server), mobeeus.stop.bind(mobeeus)], each, (err) => {
+
+                            expect(err).to.not.exist;
+                            finished();
+                        });
+
+                    }, 100);
+                });
+            });
+        });
+
+    });
+
     it('should queue a task, run it, then queue a task and run it server side.', (finished) => {
 
         let received = null;
