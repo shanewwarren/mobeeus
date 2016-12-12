@@ -11,10 +11,10 @@
     "mobeeus": "client.js"
   },
   "scripts": {
-    "test": "mocha --recursive test",
-    "one_way": "node ./examples/one_way/server & ./bin/mobeeus -f ./examples/one_way/worker.js -a 5000",
-    "two_way": "node ./examples/two_way/server & ./bin/mobeeus -f ./examples/two_way/worker.js -a 500",
-    "scheduling": "node ./examples/scheduling/server & ./bin/mobeeus -f ./examples/scheduling/worker.js -a 20000"
+    "bin": "node client.js",
+    "one_way": "node ./examples/one_way/server & npm run bin -- -f ./examples/one_way/worker.js -a 5000",
+    "two_way": "node ./examples/two_way/server & npm run bin -- -f ./examples/two_way/worker.js -a 500",
+    "scheduling": "node ./examples/scheduling/server & npm run bin -- -f ./examples/scheduling/worker.js -a 20000"
   },
   "author": "Shane Warren",
   "license": "BSD-3-Clause",
