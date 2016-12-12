@@ -3,7 +3,8 @@
 // Load modules
 const Hapi = require('hapi');
 const Hoek = require('hoek');
-const Items = require('items');
+const Promise = require('bluebird');
+
 
 const Mobeeus = require('../../lib');
 
@@ -23,32 +24,34 @@ const mobeeus = {
     }
 };
 
-const items = [...Array(100).keys()].map((number) => {
+const sendTasks = (srv) => {
 
-    return { left: 5, right: number + 1, operator: '*' };
-});
+    const items = [...Array(100).keys()].map((number) => {
 
-server.register(mobeeus, (err) => {
-
-    Hoek.assert(!err, err);
-
-    server.start((err) => {
-
-        Hoek.assert(!err, err);
-
-        const each = (item, next) => server.dispatcher.task('math-task', item, next);
-
-        Items.serial(items, each, (err) => {
-
-            Hoek.assert(!err, err);
-
-            setTimeout(() => {
-
-                server.stop((err) => {
-
-                    Hoek.assert(!err, err);
-                });
-            }, 5000);
-        });
+        return { left: 5, right: number + 1, operator: '*' };
     });
-});
+
+    return Promise.each(items, (item) => {
+
+        return srv.dispatcher.task('math-task', item);
+    });
+};
+
+const timeout = (ms) => {
+
+    return new Promise((ok) => {
+
+        setTimeout(ok, ms);
+    });
+};
+
+server.register(mobeeus)
+      .then(() => server.start())
+      .then(() => sendTasks(server))
+      .then(() => timeout(5000))
+      .then(() => server.stop())
+      .catch((err) => {
+
+          console.log(err);
+          Hoek.assert(!err, err);
+      });

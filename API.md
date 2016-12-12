@@ -156,6 +156,7 @@ Queues a task, where:
 - `payload` - optional data to send to the task.
 - `next` - the continuation method required.
 
+If no `next` callback is provided, a Promise object is returned.
 
 #### `server.dispatcher.every(interval, name, [payload], next)`
 
@@ -166,6 +167,8 @@ Schedules a job to run on a repeated interval, where:
 - `payload` - optional data to send to the task.
 - `next` - the continuation method required.
 
+If no `next` callback is provided, a Promise object is returned.
+
 #### `server.dispatcher.schedule(when, name, [payload], next)`
 
 Schedules a job to run once later, where:
@@ -175,6 +178,8 @@ Schedules a job to run once later, where:
 - `payload` - data to send to the task.
 - `next` - the continuation method required.
 
+If no `next` callback is provided, a Promise object is returned.
+
 #### `server.dispatcher.now(name, [payload], next)`
 
 Schedules a job to run now, where:
@@ -182,6 +187,8 @@ Schedules a job to run now, where:
 - `name` - Name of the the job.
 - `payload` - data to send to the task.
 - `next` - the continuation method required.
+
+If no `next` callback is provided, a Promise object is returned.
 
 #### `server.dispatcher.agenda`
 
