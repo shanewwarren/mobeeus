@@ -5,7 +5,7 @@ const expect = require('chai').expect;
 const Hapi = require('hapi');
 const Joi = require('joi');
 const Items = require('items');
-const MobeeusClient = require('../lib/client');
+const MobeeusClient = require('../client');
 const Mobeeus = require('../lib');
 
 // Declare internals

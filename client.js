@@ -4,10 +4,9 @@
 
 // Load modules
 
-const Mobeeus = require('./mobeeus');
+const Mobeeus = require('./lib/mobeeus');
 const Process = require('process');
 const Path = require('path');
-const Fs = require('fs');
 const Bossy = require('bossy');
 
 // Declare internals
@@ -28,6 +27,13 @@ internals.options = function (next) {
             alias: 'a',
             type: 'number',
             description: 'How long to keep alive (default: forever)',
+            require: false,
+            default: -1
+        },
+        watch: {
+            alias: 'w',
+            type: 'boolean',
+            description: 'Watch the process using nodemon.',
             require: false,
             default: -1
         }
