@@ -8,7 +8,7 @@
   },
   "main": "lib/index.js",
   "bin": {
-    "mobeeus": "lib/client.js"
+    "mobeeus": "client.js"
   },
   "scripts": {
     "test": "mocha --recursive test",
